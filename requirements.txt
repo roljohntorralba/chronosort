@@ -1,0 +1,13 @@
+# Currently no external dependencies required
+# The script uses only Python standard library modules:
+# - os
+# - sys
+# - shutil
+# - datetime
+# - pathlib
+# - argparse
+
+# If you need to add dependencies later, list them here
+# For example:
+# requests>=2.25.0
+# pillow>=8.0.0  # If you want to read EXIF data from photos
