@@ -206,12 +206,3 @@ $RECYCLE.BIN/
 test_photos/
 *.old
 *.bak
-setup.sh
-organize.sh
-file_date_organizer.py
-file_date_organizer_gui.py
-requirements_gui.txt
-build_gui.sh
-file_organizer_gui.spec
-README_GUI.md
-TROUBLESHOOTING.md
