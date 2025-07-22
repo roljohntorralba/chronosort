@@ -64,7 +64,7 @@ photos/
 
 ## Author
 
-Roljohn Torralba
+Rol John Torralba
 
 ## License
 

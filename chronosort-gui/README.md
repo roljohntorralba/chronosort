@@ -75,7 +75,7 @@ sudo yum install tkinter
 
 ## Author
 
-Roljohn Torralba
+Rol John Torralba
 
 ## License
 

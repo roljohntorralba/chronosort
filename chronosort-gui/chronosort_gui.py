@@ -6,7 +6,7 @@ A graphical user interface for organizing files by their creation/modification d
 Creates folders named with dates (YYYY-MM-DD format) and moves files into
 the appropriate date folder.
 
-Author: Roljohn Torralba
+Author: Rol John Torralba
 """
 
 import os

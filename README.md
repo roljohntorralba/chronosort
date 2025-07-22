@@ -101,7 +101,7 @@ Contributions welcome! Please read our contributing guidelines and submit pull r
 
 ## Author
 
-**Roljohn Torralba**
+**Rol John Torralba**
 
 ## License
 

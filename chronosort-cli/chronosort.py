@@ -6,7 +6,7 @@ Organizes files in a directory by their creation/modification date.
 Creates folders named with dates (YYYY-MM-DD format) and moves files into
 the appropriate date folder based on when they were created or last modified.
 
-Author: Roljohn Torralba
+Author: Rol John Torralba
 Usage: python chronosort.py [directory_path] [--dry-run]
 """
 
