@@ -13,7 +13,7 @@ A command-line tool for organizing files by their creation/modification date.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/chronosort.git
+git clone https://github.com/roljohntorralba/chronosort.git
 cd chronosort/chronosort-cli
 
 # Create virtual environment (optional but recommended)

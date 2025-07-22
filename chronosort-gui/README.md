@@ -17,7 +17,7 @@ A graphical user interface for organizing files by their creation/modification d
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/chronosort.git
+git clone https://github.com/roljohntorralba/chronosort.git
 cd chronosort/chronosort-gui
 
 # Create virtual environment
@@ -33,7 +33,7 @@ python chronosort_gui.py
 
 ### Option 2: Download Standalone Executable
 
-Download the appropriate executable for your platform from the [Releases](https://github.com/yourusername/chronosort/releases) page:
+Download the appropriate executable for your platform from the [Releases](https://github.com/roljohntorralba/chronosort/releases) page:
 - **macOS**: `ChronoSort-macOS`
 - **Windows**: `ChronoSort-Windows.exe`
 - **Linux**: `ChronoSort-Linux`

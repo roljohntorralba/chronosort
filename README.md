@@ -67,11 +67,11 @@ photos/
 
 Choose your preferred method:
 
-1. **Download executables** from [Releases](https://github.com/yourusername/chronosort/releases)
+1. **Download executables** from [Releases](https://github.com/roljohntorralba/chronosort/releases)
 2. **Clone and run from source** (requires Python 3.7+)
 
 ```bash
-git clone https://github.com/yourusername/chronosort.git
+git clone https://github.com/roljohntorralba/chronosort.git
 cd chronosort
 ```
 
@@ -109,6 +109,6 @@ MIT License - see LICENSE file for details.
 
 ## Support
 
-- 🐛 [Report Issues](https://github.com/yourusername/chronosort/issues)
-- 💡 [Feature Requests](https://github.com/yourusername/chronosort/discussions)
-- 📖 [Documentation](https://github.com/yourusername/chronosort/wiki)
+- 🐛 [Report Issues](https://github.com/roljohntorralba/chronosort/issues)
+- 💡 [Feature Requests](https://github.com/roljohntorralba/chronosort/discussions)
+- 📖 [Documentation](https://github.com/roljohntorralba/chronosort/wiki)
