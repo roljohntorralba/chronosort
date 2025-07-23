@@ -4,7 +4,12 @@ A powerful file organization tool that automatically sorts files into date-based
 
 ## Overview
 
-ChronoSort analyzes file creation and modification dates, then organizes them into folders named with the date (YYYY-MM-DD format). Perfect for organizing photos, documents, downloads, or any collection of files that need chronological organization.
+ChronoSort analyzes file dates using multiple sources - prioritizing EXIF metadata from photos for accuracy, then falling back to file creation and modification dates. It organizes files into folders named with the date (YYYY-MM-DD format). Perfect for organizing photos, documents, downloads, or any collection of files that need chronological organization.
+
+### Smart Date Detection
+- **Photos**: Reads EXIF metadata (DateTimeOriginal, DateTimeDigitized, DateTime) for camera capture dates
+- **Other Files**: Uses file system creation/modification timestamps
+- **Fallback**: Gracefully handles files without metadata
 
 ## Projects
 
@@ -68,12 +73,24 @@ photos/
 Choose your preferred method:
 
 1. **Download executables** from [Releases](https://github.com/roljohntorralba/chronosort/releases)
-2. **Clone and run from source** (requires Python 3.7+)
+2. **Run from source** (requires Python 3.7+)
 
 ```bash
+# Clone the repository
 git clone https://github.com/roljohntorralba/chronosort.git
 cd chronosort
+
+# Set up virtual environment (recommended)
+python3 -m venv chronosort_env
+source chronosort_env/bin/activate  # On Windows: chronosort_env\Scripts\activate
+
+# Install dependencies (for EXIF support)
+pip install -r requirements.txt
 ```
+
+### Dependencies
+- **Pillow**: Required for EXIF metadata reading from photos
+- **tkinter**: Required for GUI (usually included with Python)
 
 ## Use Cases
 

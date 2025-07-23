@@ -4,6 +4,8 @@ A command-line tool for organizing files by their creation/modification date.
 
 ## Features
 
+- **Smart Date Detection**: Prioritizes EXIF metadata from photos, falls back to file system dates
+- **EXIF Metadata Support**: Reads camera capture dates from JPEG/TIFF photos
 - Organizes files into date-named folders (YYYY-MM-DD format)
 - Dry-run mode for safe previewing
 - Handles duplicate filenames automatically
@@ -21,6 +23,8 @@ python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # No additional dependencies required - uses Python standard library only
+# For EXIF support, install Pillow (recommended for photo organization)
+pip install Pillow
 ```
 
 ## Usage

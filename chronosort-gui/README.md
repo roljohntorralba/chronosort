@@ -4,6 +4,8 @@ A graphical user interface for organizing files by their creation/modification d
 
 ## Features
 
+- **Smart Date Detection**: Prioritizes EXIF metadata from photos, falls back to file system dates
+- **EXIF Metadata Support**: Reads camera capture dates from JPEG/TIFF photos with detailed logging
 - Easy-to-use desktop application
 - Directory browser with drag & drop support
 - Real-time progress tracking

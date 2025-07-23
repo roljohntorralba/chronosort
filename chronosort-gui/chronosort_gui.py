@@ -18,6 +18,13 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, scrolledtext
 
+try:
+    from PIL import Image
+    from PIL.ExifTags import TAGS
+    PILLOW_AVAILABLE = True
+except ImportError:
+    PILLOW_AVAILABLE = False
+
 
 class ChronoSortGUI:
     def __init__(self, root):
@@ -192,12 +199,19 @@ class ChronoSortGUI:
         self.progress.stop()
     
     def get_file_date(self, file_path):
-        """Get the creation or modification date of a file."""
+        """Get the creation date from EXIF data, then fall back to file system dates."""
         try:
+            # First, try to get EXIF date for image files
+            exif_date = self.get_exif_date(file_path)
+            if exif_date:
+                return exif_date
+            
+            # Fall back to file system dates
             stat = os.stat(file_path)
             creation_time = stat.st_birthtime if hasattr(stat, 'st_birthtime') else stat.st_ctime
             modification_time = stat.st_mtime
             
+            # Use the earlier date (typically creation time)
             file_timestamp = min(creation_time, modification_time)
             file_date = datetime.fromtimestamp(file_timestamp)
             return file_date.strftime('%Y-%m-%d')
@@ -205,6 +219,46 @@ class ChronoSortGUI:
         except Exception as e:
             self.log(f"Error getting date for {file_path}: {e}")
             return datetime.now().strftime('%Y-%m-%d')
+    
+    def get_exif_date(self, file_path):
+        """Extract the original date from EXIF data if available."""
+        if not PILLOW_AVAILABLE:
+            return None
+        
+        # Check if it's an image file
+        image_extensions = {'.jpg', '.jpeg', '.tiff', '.tif'}
+        if not any(file_path.lower().endswith(ext) for ext in image_extensions):
+            return None
+        
+        try:
+            with Image.open(file_path) as image:
+                exif_data = image._getexif()
+                
+                if exif_data is not None:
+                    # Look for date-related EXIF tags in order of preference
+                    date_tags = [
+                        'DateTimeOriginal',      # When photo was taken
+                        'DateTimeDigitized',     # When photo was digitized
+                        'DateTime'               # When file was last modified
+                    ]
+                    
+                    for tag_name in date_tags:
+                        for tag_id, value in exif_data.items():
+                            tag = TAGS.get(tag_id, tag_id)
+                            if tag == tag_name:
+                                try:
+                                    # Parse EXIF date format: "YYYY:MM:DD HH:MM:SS"
+                                    exif_datetime = datetime.strptime(value, '%Y:%m:%d %H:%M:%S')
+                                    self.log(f"Using EXIF {tag_name} for {os.path.basename(file_path)}: {exif_datetime.strftime('%Y-%m-%d')}")
+                                    return exif_datetime.strftime('%Y-%m-%d')
+                                except ValueError:
+                                    continue
+                    
+        except Exception as e:
+            # Log the error but don't fail - we'll fall back to file system dates
+            self.log(f"Could not read EXIF data from {os.path.basename(file_path)}: {e}")
+        
+        return None
     
     def create_date_folder(self, base_path, date_string):
         """Create a folder with the given date string if it doesn't exist."""
